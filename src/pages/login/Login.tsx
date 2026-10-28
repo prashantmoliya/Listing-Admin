@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useNavigate, Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { Eye, EyeOff, ArrowRight, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { InputWithLabel } from "@/components/common"
@@ -70,17 +70,7 @@ const Login = () => {
             <InputWithLabel
               id="password"
               type={showPassword ? "text" : "password"}
-              label={
-                <div className="flex items-center justify-between w-full">
-                  <span>Password</span>
-                  <Link
-                    to="/forgot-password"
-                    className="text-xs font-semibold text-primary hover:underline"
-                  >
-                    Forgot password?
-                  </Link>
-                </div>
-              }
+              label="Password"
               placeholder="Enter your password"
               {...field}
               error={errors.password?.message}
