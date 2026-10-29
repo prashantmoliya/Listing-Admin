@@ -14,17 +14,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Badge } from "@/components/ui/badge"
 import { ImageUpload, InputWithLabel } from "@/components/common"
-
-// Helper function to auto-generate slug from name
-const generateSlug = (val: string) => {
-  return val
-    .toLowerCase()
-    .trim()
-    .replace(/[^\w\s-]/g, "")
-    .replace(/[\s_-]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-}
-
+import { generateSlug } from "@/lib/utils"
 
 const CategoryForm = () => {
   const { id } = useParams<{ id: string }>()
