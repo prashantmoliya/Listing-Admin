@@ -1,14 +1,25 @@
-import { NavLink, Link } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { NavLink, Link, useLocation } from "react-router-dom"
 import { 
   LayoutDashboard, 
   Building2, 
   FolderTree, 
   Users, 
-  MessageSquare, 
-  Star, 
+  MessageSquare,
   Settings,
   Building,
-  ExternalLink
+  ExternalLink,
+  ChevronDown,
+  Mail,
+  Megaphone,
+  Package,
+  CreditCard,
+  Bell,
+  Receipt,
+  MapPin,
+  ShoppingBag,
+  FileText,
+  type LucideIcon
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -17,17 +28,70 @@ interface SidebarProps {
   onClose?: () => void
 }
 
-const navItems = [
+interface NavSubItem {
+  label: string
+  href: string
+  icon: LucideIcon
+}
+
+interface NavItem {
+  label: string
+  href?: string
+  icon: LucideIcon
+  children?: NavSubItem[]
+}
+
+const mainNavItems: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard },
   { label: "Categories", href: "/categories", icon: FolderTree },
   { label: "Users", href: "/users", icon: Users },
   { label: "Listings", href: "/listings", icon: Building2 },
-  { label: "Inquiries", href: "/inquiries", icon: MessageSquare },
-  { label: "Reviews", href: "/reviews", icon: Star },
+  { label: "Services & Products", href: "/services-products", icon: ShoppingBag },
+  { label: "States & City", href: "/states-city", icon: MapPin },
+  { 
+    label: "Inquiries", 
+    icon: MessageSquare,
+    children: [
+      { label: "Contact", href: "/inquiries/contact", icon: Mail },
+      { label: "Banner Ads", href: "/inquiries/banner-ads", icon: Megaphone },
+      { label: "Services & Products", href: "/inquiries/services-products", icon: Package },
+    ]
+  },
+  { label: "Subscriptions", href: "/subscriptions", icon: CreditCard },
+  { label: "Payments", href: "/payments", icon: Receipt },
+  { label: "Blog", href: "/blog", icon: FileText },
+  { label: "Notification", href: "/notifications", icon: Bell },
   { label: "Settings", href: "/settings", icon: Settings },
 ]
 
 const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
+  const location = useLocation()
+  const [isInquiriesOpen, setIsInquiriesOpen] = useState<boolean>(false)
+
+  // Helper function to close submenu when clicking outside
+  const closeSubMenu = () => {
+    setIsInquiriesOpen(false)
+  }
+
+  // Helper functions to check active routes
+  const isActiveLink = (href: string) => {
+    return href === "/" ? location.pathname === "/" : location.pathname.startsWith(href)
+  }
+
+  const isParentActive = (children?: NavSubItem[]) => {
+    return Boolean(children?.some((child) => location.pathname.startsWith(child.href)))
+  }
+
+  // Auto expand when an inquiry route is active, close when outside
+  useEffect(() => {
+    const inquiriesItem = mainNavItems.find((item) => item.children)
+    if (isParentActive(inquiriesItem?.children)) {
+      setIsInquiriesOpen(true)
+    } else {
+      closeSubMenu()
+    }
+  }, [location.pathname])
+
   return (
     <aside
       className={cn(
@@ -40,7 +104,10 @@ const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
       <div className="h-20 px-5 border-b border-border flex items-center justify-between shrink-0">
         <Link
           to="/"
-          onClick={onClose}
+          onClick={() => {
+            closeSubMenu()
+            onClose?.()
+          }}
           className="inline-flex items-center gap-2.5 group select-none min-w-0"
         >
           <div className="w-9 h-9 rounded-xl bg-linear-to-tr from-indigo-600 via-indigo-500 to-fuchsia-600 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform shrink-0">
@@ -68,36 +135,108 @@ const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
           Management
         </p>
 
-        {navItems.map((item) => {
+        {/* Main Nav Items */}
+        {mainNavItems.map((item) => {
           const Icon = item.icon
+          const hasChildren = Boolean(item.children && item.children.length > 0)
+
+          if (hasChildren && item.children) {
+            const isChildActive = isParentActive(item.children)
+
+            return (
+              <div key={item.label}>
+                <button
+                  type="button"
+                  onClick={() => setIsInquiriesOpen((prev) => !prev)}
+                  className={cn(
+                    "w-full group flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer select-none",
+                    isChildActive
+                      ? "bg-muted text-foreground font-semibold"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                  )}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon
+                      className={cn(
+                        "size-4.5 transition-colors",
+                        isChildActive
+                          ? "text-primary"
+                          : "text-muted-foreground group-hover:text-foreground"
+                      )}
+                    />
+                    <span>{item.label}</span>
+                  </div>
+                  <ChevronDown
+                    className={cn(
+                      "size-4 text-muted-foreground transition-transform duration-200",
+                      isInquiriesOpen && "rotate-180"
+                    )}
+                  />
+                </button>
+
+                {isInquiriesOpen && (
+                  <div className="mt-1 ml-3.5 pl-2.75 border-l border-border/80 space-y-1">
+                    {item.children.map((subItem) => {
+                      const SubIcon = subItem.icon
+                      const isSubActive = isActiveLink(subItem.href)
+
+                      return (
+                        <NavLink
+                          key={subItem.href}
+                          to={subItem.href}
+                          onClick={onClose}
+                          className={cn(
+                            "group flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium transition-all duration-150",
+                            isSubActive
+                              ? "bg-primary text-primary-foreground font-semibold shadow-xs shadow-primary/20"
+                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                          )}
+                        >
+                          <SubIcon
+                            className={cn(
+                              "size-3.5 transition-colors",
+                              isSubActive
+                                ? "text-primary-foreground"
+                                : "text-muted-foreground group-hover:text-foreground"
+                            )}
+                          />
+                          <span className="truncate">{subItem.label}</span>
+                        </NavLink>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+            )
+          }
+
+          const isLinkActive = isActiveLink(item.href!)
+
           return (
             <NavLink
               key={item.href}
-              to={item.href}
+              to={item.href!}
               end={item.href === "/"}
-              onClick={onClose}
-              className={({ isActive }) =>
-                cn(
-                  "group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150",
-                  isActive
-                    ? "bg-primary text-primary-foreground font-semibold shadow-sm shadow-primary/20"
-                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                )
-              }
-            >
-              {({ isActive }) => (
-                <>
-                  <Icon
-                    className={cn(
-                      "size-4.5 transition-colors",
-                      isActive
-                        ? "text-primary-foreground"
-                        : "text-muted-foreground group-hover:text-foreground"
-                    )}
-                  />
-                  <span>{item.label}</span>
-                </>
+              onClick={() => {
+                closeSubMenu()
+                onClose?.()
+              }}
+              className={cn(
+                "group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150",
+                isLinkActive
+                  ? "bg-primary text-primary-foreground font-semibold shadow-sm shadow-primary/20"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground"
               )}
+            >
+              <Icon
+                className={cn(
+                  "size-4.5 transition-colors",
+                  isLinkActive
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground group-hover:text-foreground"
+                )}
+              />
+              <span>{item.label}</span>
             </NavLink>
           )
         })}
@@ -125,4 +264,4 @@ const Sidebar = ({ isOpen = false, onClose }: SidebarProps) => {
   )
 }
 
-export default Sidebar;
+export default Sidebar

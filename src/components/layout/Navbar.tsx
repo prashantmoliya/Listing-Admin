@@ -33,13 +33,41 @@ const routeHeaders: Record<string, HeaderConfig> = {
     title: "Users",
     subtitle: "Manage registered members and permissions.",
   },
-  "/inquiries": {
-    title: "Inquiries",
-    subtitle: "Review incoming client inquiries and leads.",
+  "/inquiries/contact": {
+    title: "Contact Inquiries",
+    subtitle: "Review incoming general contact messages and inquiries.",
   },
-  "/reviews": {
-    title: "Reviews",
-    subtitle: "Manage customer feedback and ratings.",
+  "/inquiries/banner-ads": {
+    title: "Banner Ads Inquiries",
+    subtitle: "Manage banner placement requests and advertising leads.",
+  },
+  "/inquiries/services-products": {
+    title: "Services & Products Inquiries",
+    subtitle: "Review inquiries and quote requests for listings.",
+  },
+  "/services-products": {
+    title: "Services & Products",
+    subtitle: "Manage catalog offerings, listings items, and inventory.",
+  },
+  "/states-city": {
+    title: "States & City",
+    subtitle: "Configure active states, districts, and serviceable cities.",
+  },
+  "/subscriptions": {
+    title: "Subscriptions",
+    subtitle: "Manage membership plans, pricing tiers, and active subscribers.",
+  },
+  "/payments": {
+    title: "Payments",
+    subtitle: "Track billing transactions, payment statuses, and revenue.",
+  },
+  "/notifications": {
+    title: "Notifications",
+    subtitle: "Send alerts, system messages, and announcements.",
+  },
+  "/blog": {
+    title: "Blog",
+    subtitle: "Write, edit, and publish platform articles and updates.",
   },
   "/settings": {
     title: "Settings",

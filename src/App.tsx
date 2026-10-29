@@ -1,17 +1,24 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import AdminLayout from "@/components/layout/AdminLayout"
 import AuthLayout from "@/components/layout/AuthLayout"
 import Login from "@/pages/login/Login"
 import Category from "@/pages/category/Category"
 import CategoryForm from "@/pages/category/CategoryForm"
 import Dashboard from "@/pages/dashboard/Dashboard"
-import Inquiries from "@/pages/inquiries/Inquiries"
 import Listings from "@/pages/listings/Listings"
 import NotFound from "@/pages/not-found/NotFound"
-import Reviews from "@/pages/reviews/Reviews"
 import Settings from "@/pages/settings/Settings"
 import Users from "@/pages/users/Users"
 import UserDetails from "@/pages/users/UserDetails"
+import ContactInquiries from "./pages/inquiries/ContactInquiries"
+import BannerAdsInquiries from "./pages/inquiries/BannerAdsInquiries"
+import ServicesProductsInquiries from "./pages/inquiries/ServicesProductsInquiries"
+import Subscriptions from "@/pages/subscriptions/Subscriptions"
+import Notifications from "@/pages/notifications/Notifications"
+import Payments from "@/pages/payments/Payments"
+import StatesCity from "@/pages/locations/StatesCity"
+import ServicesProducts from "@/pages/services-products/ServicesProducts"
+import Blog from "@/pages/blog/Blog"
 
 export default function App() {
   return (
@@ -29,8 +36,16 @@ export default function App() {
           <Route path="/listings" element={<Listings />} />
           <Route path="/users" element={<Users />} />
           <Route path="/users/:id" element={<UserDetails />} />
-          <Route path="/inquiries" element={<Inquiries />} />
-          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/inquiries" element={<Navigate to="/inquiries/contact" replace />} />
+          <Route path="/inquiries/contact" element={<ContactInquiries />} />
+          <Route path="/inquiries/banner-ads" element={<BannerAdsInquiries />} />
+          <Route path="/inquiries/services-products" element={<ServicesProductsInquiries />} />
+          <Route path="/services-products" element={<ServicesProducts />} />
+          <Route path="/states-city" element={<StatesCity />} />
+          <Route path="/subscriptions" element={<Subscriptions />} />
+          <Route path="/payments" element={<Payments />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Route>

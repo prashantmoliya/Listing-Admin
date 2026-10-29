@@ -439,5 +439,116 @@ export const mockCategories: CategoryItem[] = [
   },
 ]
 
+// ==========================================
+// Notifications Data
+// ==========================================
+
+export type NotificationType = "listing" | "inquiry" | "payment" | "user" | "broadcast"
+
+export interface NotificationItem {
+  id: string
+  title: string
+  message: string
+  type: NotificationType
+  read: boolean
+  createdAt: string
+  target?: "admin" | "business" | "all"
+  recipientName?: string
+}
+
+export const mockNotifications: NotificationItem[] = [
+  {
+    id: "NOTIF-101",
+    title: "New Listing Pending Verification",
+    message: "Taj Palace Suites has been submitted by Rajesh Sharma for approval.",
+    type: "listing",
+    read: false,
+    createdAt: "10 mins ago",
+  },
+  {
+    id: "NOTIF-102",
+    title: "New Contact Inquiry Received",
+    message: "Priya Sengupta submitted an inquiry regarding portal partnership.",
+    type: "inquiry",
+    read: false,
+    createdAt: "25 mins ago",
+  },
+  {
+    id: "NOTIF-103",
+    title: "Banner Ad Campaign Request",
+    message: "Apex Healthcare requested a 'Header Banner' ad placement for 30 days.",
+    type: "inquiry",
+    read: false,
+    createdAt: "1 hour ago",
+  },
+  {
+    id: "NOTIF-104",
+    title: "Payment Received (Growth Plan)",
+    message: "₹2,499 received from Royal Spice Restaurant via Razorpay.",
+    type: "payment",
+    read: true,
+    createdAt: "2 hours ago",
+  },
+  {
+    id: "NOTIF-105",
+    title: "New User Registered",
+    message: "Dr. Ananya Roy registered as a verified medical professional.",
+    type: "user",
+    read: true,
+    createdAt: "Yesterday",
+  },
+  {
+    id: "NOTIF-106",
+    title: "Festive Season Announcement",
+    message: "Broadcast sent to all business owners: '50% Discount on Featured Listing upgrades for Diwali week'.",
+    type: "broadcast",
+    recipientName: "All Businesses",
+    read: true,
+    createdAt: "2 days ago",
+  },
+  {
+    id: "NOTIF-107",
+    title: "Listing Verification Approved",
+    message: "Urban Kicks & Streetwear listing status changed to Verified by Admin.",
+    type: "listing",
+    read: true,
+    createdAt: "3 days ago",
+  },
+  {
+    id: "NOTIF-108",
+    title: "System Maintenance Notice",
+    message: "Scheduled cloud database upgrade announcement sent to platform vendors.",
+    type: "broadcast",
+    recipientName: "Verified Only",
+    read: true,
+    createdAt: "4 days ago",
+  },
+  {
+    id: "NOTIF-109",
+    title: "Premium Subscription Renewed",
+    message: "Elite Dental Clinic successfully renewed their Annual Business plan for ₹9,999.",
+    type: "payment",
+    read: false,
+    createdAt: "5 hours ago",
+  },
+  {
+    id: "NOTIF-110",
+    title: "Services & Products Inquiry",
+    message: "Customer Rahul Mehta sent an inquiry for 'Luxury Bridal Makeup Package' on Glamour Salon.",
+    type: "inquiry",
+    read: false,
+    createdAt: "1 day ago",
+  },
+  {
+    id: "NOTIF-111",
+    title: "Special Policy Update Notice",
+    message: "Important guideline regarding verified badge renewal dispatched to business profiles.",
+    type: "broadcast",
+    recipientName: "All Businesses",
+    read: true,
+    createdAt: "5 days ago",
+  },
+]
+
 
 

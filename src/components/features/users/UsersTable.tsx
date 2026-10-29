@@ -11,6 +11,7 @@ import {
   User,
   UserCheck,
   UserX,
+  Trash2,
 } from "lucide-react"
 import { mockUsers, type UserItem } from "@/data/dummyData"
 import DataTable, { type ColumnDef } from "@/components/common/DataTable"
@@ -30,6 +31,7 @@ const UsersTable = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedStatus, setSelectedStatus] = useState("All")
   const [statusModalUser, setStatusModalUser] = useState<UserItem | null>(null)
+  const [deleteModalUser, setDeleteModalUser] = useState<UserItem | null>(null)
 
   // Filter logic: Business owners only, search by name, email, or phone
   const filteredUsers = useMemo(() => {
@@ -210,13 +212,26 @@ const UsersTable = () => {
                     </span>
                   </Button>
                 </PopoverClose>
+
+                <PopoverClose asChild>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setDeleteModalUser(row.original)}
+                    className="w-full justify-start gap-2 h-8 px-2.5 text-xs font-semibold text-destructive hover:bg-destructive/10 hover:text-destructive cursor-pointer rounded-lg transition-colors group"
+                  >
+                    <Trash2 className="size-3.5 text-destructive transition-colors" />
+                    <span>Delete</span>
+                  </Button>
+                </PopoverClose>
               </div>
             </PopoverMenu>
         </div>
         ),
       },
     ],
-    [navigate, setStatusModalUser]
+    [navigate, setStatusModalUser, setDeleteModalUser]
   )
 
   const handleConfirmStatusChange = () => {
@@ -232,6 +247,16 @@ const UsersTable = () => {
       inMock.status = newStatus
     }
     setStatusModalUser(null)
+  }
+
+  const handleConfirmDelete = () => {
+    if (!deleteModalUser) return
+    setUsers((prev) => prev.filter((u) => u.id !== deleteModalUser.id))
+    const index = mockUsers.findIndex((u) => u.id === deleteModalUser.id)
+    if (index !== -1) {
+      mockUsers.splice(index, 1)
+    }
+    setDeleteModalUser(null)
   }
 
   return (
@@ -284,6 +309,21 @@ const UsersTable = () => {
           statusModalUser?.status === "Active" ? "destructive" : "success"
         }
         onConfirm={handleConfirmStatusChange}
+      />
+
+      {/* Delete User Confirmation Modal */}
+      <AlertModal
+        open={!!deleteModalUser}
+        onOpenChange={(open) => !open && setDeleteModalUser(null)}
+        title="Delete User Account"
+        description={
+          deleteModalUser
+            ? `Are you sure you want to permanently delete ${deleteModalUser.name}? This action cannot be undone and will permanently remove their account and all listings.`
+            : ""
+        }
+        confirmLabel="Delete User"
+        confirmVariant="destructive"
+        onConfirm={handleConfirmDelete}
       />
     </>
   )
