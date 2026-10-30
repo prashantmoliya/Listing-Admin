@@ -18,6 +18,7 @@ import Notifications from "@/pages/notifications/Notifications"
 import Payments from "@/pages/payments/Payments"
 import StatesCity from "@/pages/locations/StatesCity"
 import ServicesProducts from "@/pages/services-products/ServicesProducts"
+import Advertisements from "@/pages/advertisements/Advertisements"
 import Blog from "@/pages/blog/Blog"
 import BlogForm from "@/pages/blog/BlogForm"
 
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/inquiries/services-products" element={<ServicesProductsInquiries />} />
           <Route path="/services-products" element={<ServicesProducts />} />
           <Route path="/states-city" element={<StatesCity />} />
+          <Route path="/advertisements" element={<Advertisements />} />
           <Route path="/subscriptions" element={<Subscriptions />} />
           <Route path="/payments" element={<Payments />} />
           <Route path="/notifications" element={<Notifications />} />

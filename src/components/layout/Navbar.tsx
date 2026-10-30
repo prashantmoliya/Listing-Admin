@@ -53,6 +53,10 @@ const routeHeaders: Record<string, HeaderConfig> = {
     title: "States & City",
     subtitle: "Configure active states, districts, and serviceable cities.",
   },
+  "/advertisements": {
+    title: "Advertisements",
+    subtitle: "Manage banner ads, placements, and sponsored campaigns across the platform.",
+  },
   "/subscriptions": {
     title: "Subscriptions Plan",
     subtitle: "Manage membership plans, pricing tiers, and active subscribers.",

@@ -19,6 +19,7 @@ import {
   MapPin,
   ShoppingBag,
   FileText,
+  Tv,
   type LucideIcon
 } from "lucide-react"
 import { cn } from "@/lib/utils"
@@ -57,6 +58,7 @@ const mainNavItems: NavItem[] = [
       { label: "Services & Products", href: "/inquiries/services-products", icon: Package },
     ]
   },
+  { label: "Advertisements", href: "/advertisements", icon: Tv },
   { label: "Subscriptions Plan", href: "/subscriptions", icon: CreditCard },
   { label: "Payments", href: "/payments", icon: Receipt },
   { label: "Blogs", href: "/blog", icon: FileText },
