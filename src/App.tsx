@@ -19,6 +19,7 @@ import Payments from "@/pages/payments/Payments"
 import StatesCity from "@/pages/locations/StatesCity"
 import ServicesProducts from "@/pages/services-products/ServicesProducts"
 import Blog from "@/pages/blog/Blog"
+import BlogForm from "@/pages/blog/BlogForm"
 
 export default function App() {
   return (
@@ -46,6 +47,8 @@ export default function App() {
           <Route path="/payments" element={<Payments />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/create" element={<BlogForm />} />
+          <Route path="/blog/:id/edit" element={<BlogForm />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Route>

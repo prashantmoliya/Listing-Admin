@@ -663,5 +663,204 @@ export const mockContactInquiries: ContactInquiryItem[] = [
   },
 ]
 
+// ----------------------------------------------------
+// Blog Data
+// ----------------------------------------------------
+export interface BlogItem {
+  id: string
+  title: string
+  slug: string
+  category: string
+  author: string
+  authorRole?: string
+  authorAvatar?: string
+  authorSocialLinks?: {
+    instagram?: string
+    facebook?: string
+    twitter?: string
+    linkedin?: string
+  }
+  tags?: string[]
+  image: string
+  excerpt: string
+  content: string
+  views: number
+  status: "Published" | "Draft"
+  publishedAt: string
+  createdAt: string
+}
+
+export interface BlogCategoryItem {
+  id: string
+  name: string
+  slug: string
+  description?: string
+  status: "Active" | "Inactive"
+  createdAt?: string
+}
+
+export const mockBlogCategories: BlogCategoryItem[] = [
+  {
+    id: "bcat-1",
+    name: "Business Tips",
+    slug: "business-tips",
+    description: "Actionable strategies and operational insights for local businesses.",
+    status: "Active",
+    createdAt: "Oct 15, 2026",
+  },
+  {
+    id: "bcat-2",
+    name: "Local Guides",
+    slug: "local-guides",
+    description: "Curated neighborhood recommendations, dining spots, and city guides.",
+    status: "Active",
+    createdAt: "Oct 16, 2026",
+  },
+  {
+    id: "bcat-3",
+    name: "Marketing & SEO",
+    slug: "marketing-seo",
+    description: "Local SEO, citation building, and digital marketing tutorials.",
+    status: "Active",
+    createdAt: "Oct 18, 2026",
+  },
+  {
+    id: "bcat-4",
+    name: "Market Trends",
+    slug: "market-trends",
+    description: "Consumer behavior shifts and retail industry analysis in India.",
+    status: "Active",
+    createdAt: "Oct 20, 2026",
+  },
+  {
+    id: "bcat-5",
+    name: "Platform News",
+    slug: "platform-news",
+    description: "Updates, new directory features, and platform announcements.",
+    status: "Active",
+    createdAt: "Oct 22, 2026",
+  },
+]
+
+export const BLOG_CATEGORIES = [
+  "Business Tips",
+  "Local Guides",
+  "Marketing & SEO",
+  "Market Trends",
+  "Platform News",
+] as const
+
+export const mockBlogs: BlogItem[] = [
+  {
+    id: "blog-1",
+    title: "10 Proven Strategies to Scale Your Local Business Footfall in 2026",
+    slug: "10-proven-strategies-scale-local-business-2026",
+    category: "Business Tips",
+    author: "Raj Sharma",
+    authorRole: "Senior Business Strategist",
+    authorSocialLinks: {
+      linkedin: "https://linkedin.com/in/rajsharma",
+      twitter: "https://twitter.com/rajsharma",
+      instagram: "https://instagram.com/rajsharma",
+      facebook: "https://facebook.com/rajsharma",
+    },
+    tags: ["business-growth", "local-seo", "footfall", "marketing"],
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+    excerpt: "Discover essential offline and local SEO tactics to convert local online searches into recurring walk-in customers.",
+    content: "In the modern digital age, having an online footprint is no longer optional for brick-and-mortar storefronts. Local search intent has risen by over 300% in India across Tier 1 and Tier 2 cities. By optimizing your Google Business profile, actively maintaining high ratings on directory portals like IndianListingBucket, and offering localized seasonal promotions, merchants can unlock exponential footfall growth.",
+    views: 3420,
+    status: "Published",
+    publishedAt: "Oct 28, 2026",
+    createdAt: "Oct 28, 2026",
+  },
+  {
+    id: "blog-2",
+    title: "The Comprehensive Guide to Getting Your Business Verified",
+    slug: "comprehensive-guide-getting-business-verified",
+    category: "Platform News",
+    author: "Editorial Team",
+    authorRole: "Listing Operations",
+    authorSocialLinks: {
+      linkedin: "https://linkedin.com/company/indianlistingbucket",
+      twitter: "https://twitter.com/indianlisting",
+    },
+    tags: ["verification", "trust-badge", "compliance", "directory-guides"],
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+    excerpt: "Everything you need to know about the blue checkmark badge, required documentation, and directory ranking benefits.",
+    content: "A verified badge builds immediate trust with consumers browsing thousands of listings. Verified vendors experience a 4.2x higher contact rate and inquiry volume compared to unverified profiles. In this guide, we walk through the simple 3-step verification process: uploading your GST or Udhyam registration, validating the address with a utility receipt, and phone verification.",
+    views: 2890,
+    status: "Published",
+    publishedAt: "Oct 25, 2026",
+    createdAt: "Oct 25, 2026",
+  },
+  {
+    id: "blog-3",
+    title: "How Ahmedabad Restaurants Are Revolutionizing Fine Dining Experiences",
+    slug: "ahmedabad-restaurants-revolutionizing-fine-dining",
+    category: "Local Guides",
+    author: "Priya Varma",
+    authorRole: "Food & Lifestyle Curator",
+    authorSocialLinks: {
+      instagram: "https://instagram.com/priyavarma",
+    },
+    tags: ["ahmedabad", "restaurants", "foodie", "local-guides"],
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80",
+    excerpt: "A culinary journey exploring heritage fusion, artisanal cafes, and sustainable gastronomical trends in Gujarat's commercial hub.",
+    content: "Ahmedabad's dining landscape has transformed dynamically over the last three years. From heritage havelis serving authentic regional thalis with contemporary plating to rooftop artisanal coffee roasters in Bodakdev and Prahlad Nagar, local entrepreneurs are blending cultural culinary roots with modern hospitality standards.",
+    views: 1940,
+    status: "Published",
+    publishedAt: "Oct 21, 2026",
+    createdAt: "Oct 21, 2026",
+  },
+  {
+    id: "blog-4",
+    title: "Festive Season Advertising: Maximum ROI on Directory Banners",
+    slug: "festive-season-advertising-maximum-roi-directory-banners",
+    category: "Marketing & SEO",
+    author: "Raj Sharma",
+    authorRole: "Senior Business Strategist",
+    tags: ["festive-ads", "roi", "marketing-branding", "banners"],
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
+    excerpt: "Learn how targeted homepage banners and featured category spots boost brand awareness during Diwali and festive peaks.",
+    content: "During festive periods, consumer spending reaches its highest seasonal peak. Directory advertisements allow targeted exposure at the exact moment customers are actively looking for local retail discounts, jewelry showrooms, and banquet halls. Learn our best creative practices for click-through rate optimization.",
+    views: 1450,
+    status: "Published",
+    publishedAt: "Oct 18, 2026",
+    createdAt: "Oct 18, 2026",
+  },
+  {
+    id: "blog-5",
+    title: "Mastering Customer Feedback: How to Handle Negative Reviews Gracefully",
+    slug: "mastering-customer-feedback-handle-negative-reviews",
+    category: "Business Tips",
+    author: "Editorial Team",
+    authorRole: "Customer Success Lead",
+    tags: ["reviews", "customer-retention", "reputation", "tips"],
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    excerpt: "Turn unhappy customers into loyal brand ambassadors through prompt, empathetic, and professional public responses.",
+    content: "Receiving a 1-star or 2-star review can feel disheartening, but research proves that potential customers pay more attention to HOW a business responds than the negative review itself. A polite, solution-oriented response demonstrates transparency and care.",
+    views: 890,
+    status: "Draft",
+    publishedAt: "Draft",
+    createdAt: "Oct 29, 2026",
+  },
+  {
+    id: "blog-6",
+    title: "Understanding Micro-Influencer Collaborations for Small Retail Outlets",
+    slug: "understanding-micro-influencer-collaborations-retail",
+    category: "Market Trends",
+    author: "Aakash Mehta",
+    authorRole: "Social Media Strategist",
+    tags: ["influencers", "hyperlocal", "retail", "branding"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    excerpt: "Why hyper-local micro-influencers with 5k-20k followers drive higher conversions than celebrity sponsorships.",
+    content: "Hyperlocal marketing relies on genuine neighborhood community engagement. Local micro-influencers connect with audiences who live within a 5km radius of your business, resulting in higher authentic engagement and affordable campaign budgets for boutique businesses.",
+    views: 0,
+    status: "Draft",
+    publishedAt: "Draft",
+    createdAt: "Oct 30, 2026",
+  },
+]
+
 
 

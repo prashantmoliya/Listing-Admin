@@ -66,8 +66,12 @@ const routeHeaders: Record<string, HeaderConfig> = {
     subtitle: "Send alerts, system messages, and announcements.",
   },
   "/blog": {
-    title: "Blog",
-    subtitle: "Write, edit, and publish platform articles and updates.",
+    title: "Blogs",
+    subtitle: "Write, edit, and publish platform blogs, guides, and announcements.",
+  },
+  "/blog/create": {
+    title: "Create Blog",
+    subtitle: "Draft and publish a new blog post for the platform.",
   },
   "/settings": {
     title: "Settings",
@@ -86,6 +90,12 @@ const getHeaderConfig = (pathname: string): HeaderConfig => {
     return {
       title: "Edit Category",
       subtitle: "Update category details and configurations.",
+    }
+  }
+  if (pathname.startsWith("/blog/") && pathname.endsWith("/edit")) {
+    return {
+      title: "Edit Blog",
+      subtitle: "Update and revise your published or draft blog post.",
     }
   }
   if (pathname.startsWith("/users/")) {

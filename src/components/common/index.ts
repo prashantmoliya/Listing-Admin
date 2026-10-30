@@ -5,3 +5,4 @@ export * from "./TextareaWithLabel";
 export * from "./SelectWithLabel";
 export * from "./ImageUpload";
 export * from "./modal";
+export * from "./SocialIcons";

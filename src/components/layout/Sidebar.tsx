@@ -59,7 +59,7 @@ const mainNavItems: NavItem[] = [
   },
   { label: "Subscriptions", href: "/subscriptions", icon: CreditCard },
   { label: "Payments", href: "/payments", icon: Receipt },
-  { label: "Blog", href: "/blog", icon: FileText },
+  { label: "Blogs", href: "/blog", icon: FileText },
   { label: "Notification", href: "/notifications", icon: Bell },
   { label: "Settings", href: "/settings", icon: Settings },
 ]
