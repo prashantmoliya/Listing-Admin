@@ -550,5 +550,118 @@ export const mockNotifications: NotificationItem[] = [
   },
 ]
 
+// ----------------------------------------------------
+// Contact Inquiries Data
+// ----------------------------------------------------
+export interface ContactInquiryItem {
+  id: string
+  name: string
+  email: string
+  subject:
+    | "General Inquiry"
+    | "Listing Support"
+    | "Technical Issue"
+    | "Business Partnership"
+    | "Advertising & Sponsorship"
+    | "Other"
+  message: string
+  status: "New" | "Replied" | "Archived"
+  createdAt: string
+  replyText?: string
+  repliedAt?: string
+}
+
+export const CONTACT_SUBJECTS = [
+  "General Inquiry",
+  "Listing Support",
+  "Technical Issue",
+  "Business Partnership",
+  "Advertising & Sponsorship",
+  "Other",
+] as const
+
+export const mockContactInquiries: ContactInquiryItem[] = [
+  {
+    id: "INQ-201",
+    name: "Aarav Patel",
+    email: "aarav.patel@gmail.com",
+    subject: "Business Partnership",
+    message: "Hello team, We operate a chain of 14 organic grocery stores in Gujarat and Maharashtra. We would like to explore a bulk verified listing partnership and promotional tie-up across your portal.",
+    status: "New",
+    createdAt: "15 mins ago",
+  },
+  {
+    id: "INQ-202",
+    name: "Pooja Deshmukh",
+    email: "pooja.d@zenithtech.in",
+    subject: "Listing Support",
+    message: "I registered our IT consultancy firm 'Zenith Systems' yesterday, but the verification process seems pending on our account. Please assist in activating our listing.",
+    status: "New",
+    createdAt: "1 hour ago",
+  },
+  {
+    id: "INQ-203",
+    name: "Vikram Singhania",
+    email: "vikram@singhaniagroup.com",
+    subject: "Advertising & Sponsorship",
+    message: "We want to sponsor the top banner space on the Mumbai and Delhi directory pages for the upcoming Q4 festive period. Could you share the current ad rate card and impression metrics?",
+    status: "Replied",
+    createdAt: "Yesterday, 3:30 PM",
+    replyText: "Hello Vikram, Thank you for reaching out! We have emailed our Q4 Media Kit and banner ad pricing to your email address.",
+    repliedAt: "Yesterday, 5:15 PM",
+  },
+  {
+    id: "INQ-204",
+    name: "Neha Sundaram",
+    email: "neha.sundaram@gmail.com",
+    subject: "General Inquiry",
+    message: "Does your platform offer an API or bulk export option to verify whether vendor listings in Ahmedabad have active GST registrations?",
+    status: "New",
+    createdAt: "Yesterday, 11:20 AM",
+  },
+  {
+    id: "INQ-205",
+    name: "Karan Johar",
+    email: "karan.studio@mumbaiarts.org",
+    subject: "Technical Issue",
+    message: "When uploading high-resolution 4K portfolio images on our Photography listing, the image upload hangs at 99%. Could you check your file size thresholds?",
+    status: "Replied",
+    createdAt: "Oct 27, 2026",
+    replyText: "Hi Karan, We have resolved the file size timeout on the CDN. Max upload size is 10MB per image. Please try re-uploading now.",
+    repliedAt: "Oct 27, 2026",
+  },
+  {
+    id: "INQ-206",
+    name: "Rohan Varma",
+    email: "rohan@varmafoods.co",
+    subject: "Business Partnership",
+    message: "Interested in onboarding all our cloud kitchen outlets across Bengaluru under a single franchise corporate account. Please connect with our marketing lead.",
+    status: "Archived",
+    createdAt: "Oct 25, 2026",
+    replyText: "Account executive Raj assigned to schedule a demo call with your team.",
+    repliedAt: "Oct 26, 2026",
+  },
+  {
+    id: "INQ-207",
+    name: "Dr. Ananya Sen",
+    email: "ananya.sen@senclinic.org",
+    subject: "Listing Support",
+    message: "Our clinic address moved from Salt Lake Sector 1 to Sector 5 Kolkata. The edit form asks for re-verification document upload. Where do I upload the new municipal license?",
+    status: "New",
+    createdAt: "Oct 24, 2026",
+  },
+  {
+    id: "INQ-208",
+    name: "Deepak Chawla",
+    email: "deepak.c@chawlalaw.in",
+    subject: "Other",
+    message: "Requesting removal of an outdated duplicate listing created by a previous employee under 'Chawla Legal Associates'.",
+    status: "Replied",
+    createdAt: "Oct 22, 2026",
+    replyText: "The duplicate listing LST-902 has been merged with your primary verified account.",
+    repliedAt: "Oct 23, 2026",
+  },
+]
+
 
 

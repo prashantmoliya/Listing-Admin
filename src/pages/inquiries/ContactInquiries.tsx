@@ -1,15 +1,95 @@
+import { useState } from "react"
 import { PageHeader } from "@/components/common/PageHeader"
+import {
+  mockContactInquiries,
+  type ContactInquiryItem,
+} from "@/data/dummyData"
+import ContactInquiryStats from "@/components/features/inquiries/ContactInquiryStats"
+import ContactInquiriesTable from "@/components/features/inquiries/ContactInquiriesTable"
+import ContactInquiryModal from "@/components/features/inquiries/ContactInquiryModal"
 
 const ContactInquiries = () => {
+  const [inquiries, setInquiries] = useState<ContactInquiryItem[]>(mockContactInquiries)
+  const [selectedInquiry, setSelectedInquiry] = useState<ContactInquiryItem | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // Open modal
+  const handleViewInquiry = (inquiry: ContactInquiryItem) => {
+    setSelectedInquiry(inquiry)
+    setIsModalOpen(true)
+  }
+
+  // Handle sending email reply
+  const handleSendReply = (inquiryId: string, replyText: string) => {
+    setInquiries((prev) =>
+      prev.map((item) =>
+        item.id === inquiryId
+          ? {
+              ...item,
+              status: "Replied",
+              replyText,
+              repliedAt: "Just now",
+            }
+          : item
+      )
+    )
+    if (selectedInquiry?.id === inquiryId) {
+      setSelectedInquiry((prev) =>
+        prev
+          ? {
+              ...prev,
+              status: "Replied",
+              replyText,
+              repliedAt: "Just now",
+            }
+          : null
+      )
+    }
+  }
+
+  // Handle status toggle (New / Replied / Archived)
+  const handleToggleStatus = (
+    inquiryId: string,
+    status: ContactInquiryItem["status"]
+  ) => {
+    setInquiries((prev) =>
+      prev.map((item) =>
+        item.id === inquiryId ? { ...item, status } : item
+      )
+    )
+    if (selectedInquiry?.id === inquiryId) {
+      setSelectedInquiry((prev) => (prev ? { ...prev, status } : null))
+    }
+  }
+
   return (
     <div className="space-y-6">
+      {/* Page Header */}
       <PageHeader
         title="Contact Inquiries"
-        description="Review and respond to general contact form submissions from the website."
+        description="Review incoming contact messages, partnership requests, and dispatch direct email replies."
+      />
+
+      {/* Stats Overview */}
+      <ContactInquiryStats inquiries={inquiries} />
+
+      {/* Inquiries Table */}
+      <ContactInquiriesTable
+        inquiries={inquiries}
+        onInquiriesChange={setInquiries}
+        onViewInquiry={handleViewInquiry}
+      />
+
+      {/* Inquiry Detail & Reply Modal */}
+      <ContactInquiryModal
+        open={isModalOpen}
+        onOpenChange={setIsModalOpen}
+        inquiry={selectedInquiry}
+        onSendReply={handleSendReply}
+        onToggleStatus={handleToggleStatus}
       />
     </div>
   )
 }
 
 export default ContactInquiries
-
