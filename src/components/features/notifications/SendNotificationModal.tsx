@@ -115,7 +115,7 @@ const SendNotificationModal = ({
             variant="outline"
             size="sm"
             onClick={handleClose}
-            className="h-9 px-4 text-xs font-semibold cursor-pointer"
+            className="cursor-pointer"
           >
             Cancel
           </Button>
@@ -123,7 +123,7 @@ const SendNotificationModal = ({
             type="submit"
             size="sm"
             disabled={isSubmitting}
-            className="h-9 gap-1.5 px-4 text-xs font-semibold shadow-xs cursor-pointer"
+            className="font-semibold cursor-pointer"
           >
             <Send className="size-3.5" />
             {isSubmitting ? "Sending..." : "Send Notification"}

@@ -107,7 +107,7 @@ const ContactInquiryModal = ({
                 variant="outline"
                 size="sm"
                 onClick={() => onToggleStatus(inquiry.id, "Archived")}
-                className="w-full sm:w-auto h-9 sm:h-8.5 px-3 text-xs font-semibold gap-1.5 cursor-pointer text-muted-foreground hover:text-foreground justify-center"
+                className="w-full sm:w-auto px-3 font-semibold gap-1.5 cursor-pointer text-muted-foreground hover:text-foreground justify-center"
               >
                 <Archive className="size-3.5" />
                 <span>Archive</span>
@@ -121,7 +121,7 @@ const ContactInquiryModal = ({
               variant="outline"
               size="sm"
               onClick={handleClose}
-              className="flex-1 sm:flex-none h-9 sm:h-8.5 px-4 text-xs font-semibold cursor-pointer justify-center"
+              className="flex-1 sm:flex-none px-4 font-semibold cursor-pointer justify-center"
             >
               Close
             </Button>
@@ -129,7 +129,7 @@ const ContactInquiryModal = ({
               type="submit"
               size="sm"
               disabled={isSubmitting}
-              className="flex-1 sm:flex-none h-9 sm:h-8.5 gap-1.5 px-4 text-xs font-semibold shadow-xs cursor-pointer whitespace-nowrap justify-center"
+              className="flex-1 sm:flex-none gap-1.5 px-4 font-semibold cursor-pointer whitespace-nowrap justify-center"
             >
               <Send className="size-3.5 shrink-0" />
               <span>{isSubmitting ? "Sending..." : "Send Reply"}</span>
@@ -236,7 +236,6 @@ const ContactInquiryModal = ({
                 label="Compose Reply"
                 placeholder={`Type your response to ${inquiry.name} (${inquiry.email})...`}
                 rows={4}
-                required
                 {...field}
                 error={error?.message}
                 disabled={isSubmitting}

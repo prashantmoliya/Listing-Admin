@@ -57,7 +57,7 @@ const mainNavItems: NavItem[] = [
       { label: "Services & Products", href: "/inquiries/services-products", icon: Package },
     ]
   },
-  { label: "Subscriptions", href: "/subscriptions", icon: CreditCard },
+  { label: "Subscriptions Plan", href: "/subscriptions", icon: CreditCard },
   { label: "Payments", href: "/payments", icon: Receipt },
   { label: "Blogs", href: "/blog", icon: FileText },
   { label: "Notification", href: "/notifications", icon: Bell },

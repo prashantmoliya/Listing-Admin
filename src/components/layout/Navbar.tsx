@@ -54,7 +54,7 @@ const routeHeaders: Record<string, HeaderConfig> = {
     subtitle: "Configure active states, districts, and serviceable cities.",
   },
   "/subscriptions": {
-    title: "Subscriptions",
+    title: "Subscriptions Plan",
     subtitle: "Manage membership plans, pricing tiers, and active subscribers.",
   },
   "/payments": {

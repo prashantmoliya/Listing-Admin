@@ -103,7 +103,7 @@ const BlogCategoryModal = ({
             size="sm"
             disabled={isSubmitting}
             onClick={handleSubmit(onSubmit)}
-            className="cursor-pointer font-semibold shadow-xs"
+            className="cursor-pointer font-semibold"
           >
             {isEditing ? "Save Changes" : "Create Category"}
           </Button>
