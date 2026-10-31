@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import AlertModal from "@/components/common/AlertModal"
+import { UserAvatar } from "@/components/common"
 import { type ContactInquiryItem } from "@/data/dummyData"
 import { cn } from "@/lib/utils"
 
@@ -107,9 +108,7 @@ const ContactInquiriesTable = ({
           const inq = row.original
           return (
             <div className="flex items-center gap-3 py-1">
-              <div className="size-9 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-xs shrink-0">
-                {inq.name.charAt(0).toUpperCase()}
-              </div>
+              <UserAvatar name={inq.name} />
               <div className="min-w-0">
                 <div className="text-xs sm:text-sm font-semibold text-foreground truncate">
                   {inq.name}

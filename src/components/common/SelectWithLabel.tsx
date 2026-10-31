@@ -123,5 +123,3 @@ export function SelectWithLabel({
   );
 }
 
-export default SelectWithLabel;
-

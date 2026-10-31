@@ -17,6 +17,7 @@ import UserRegisteredListings from "@/components/features/users/UserRegisteredLi
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import AlertModal from "@/components/common/AlertModal"
+import { UserAvatar } from "@/components/common"
 
 const UserDetails = () => {
   const { id } = useParams<{ id: string }>()
@@ -35,13 +36,6 @@ const UserDetails = () => {
       target.status = newStatus
     }
   }
-
-  const initials = user.name
-    .split(" ")
-    .map((n) => n[0])
-    .slice(0, 2)
-    .join("")
-    .toUpperCase()
 
   return (
 
@@ -67,10 +61,11 @@ const UserDetails = () => {
 
             {/* Profile Avatar & Info */}
             <div className="px-6 pb-6 pt-0 relative">
-              {/* Overlapping Avatar */}
-              <div className="size-20 rounded-2xl bg-gradient-to-tr from-primary to-indigo-600 text-primary-foreground font-black text-2xl shadow-md border-4 border-card flex items-center justify-center -mt-10">
-                {initials}
-              </div>
+              <UserAvatar 
+                name={user.name} 
+                className="size-20 font-extrabold shadow-md border-4 border-card bg-gradient-to-tr from-primary to-indigo-600 text-primary-foreground flex items-center justify-center -mt-10"  
+                fallbackClassName="text-2xl"
+              />
 
               {/* Name & Account Type */}
               <div className="mt-3 space-y-1">

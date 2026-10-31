@@ -1,6 +1,7 @@
 import { ArrowUpRight, CheckCircle2, XCircle } from "lucide-react"
 import { Link } from "react-router-dom"
 import { mockUsers } from "@/data/dummyData"
+import { UserAvatar } from "@/components/common"
 
 const RecentUsersCard = () => {
   // Show first 4 recently registered business owners
@@ -27,13 +28,6 @@ const RecentUsersCard = () => {
 
       <div className="space-y-3.5">
         {recentUsers.map((user) => {
-          const initials = user.name
-            .split(" ")
-            .map((n) => n[0])
-            .slice(0, 2)
-            .join("")
-            .toUpperCase()
-
           return (
             <Link
               key={user.id}
@@ -41,9 +35,7 @@ const RecentUsersCard = () => {
               className="flex items-center justify-between gap-3 p-1.5 -mx-1.5 rounded-xl hover:bg-muted/50 transition-colors group cursor-pointer"
             >
               <div className="flex items-center gap-3 min-w-0">
-                <div className="size-9 rounded-full bg-muted flex items-center justify-center font-bold text-xs shrink-0 text-muted-foreground border border-border">
-                  {initials}
-                </div>
+                <UserAvatar name={user.name} />
                 <div className="min-w-0">
                   <p className="text-xs font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                     {user.name}

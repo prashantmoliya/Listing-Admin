@@ -103,7 +103,7 @@ const Blog = () => {
               value="blogs"
               className="h-7.5 px-3.5 text-xs font-semibold rounded-lg gap-1.5"
             >
-              <FileText className="size-3.5" />
+              <FileText className="size-3.75" />
               <span>Blogs</span>
             </TabsTrigger>
 
@@ -111,7 +111,7 @@ const Blog = () => {
               value="categories"
               className="h-7.5 px-3.5 text-xs font-semibold rounded-lg gap-1.5"
             >
-              <FolderTree className="size-3.5" />
+              <FolderTree className="size-3.75" />
               <span>Category</span>
             </TabsTrigger>
           </TabsList>

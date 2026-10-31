@@ -6,3 +6,4 @@ export * from "./SelectWithLabel";
 export * from "./ImageUpload";
 export * from "./modal";
 export * from "./SocialIcons";
+export * from "./UserAvatar";

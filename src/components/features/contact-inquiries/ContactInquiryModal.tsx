@@ -10,6 +10,7 @@ import {
   MessageSquare,
 } from "lucide-react"
 import { Modal } from "@/components/common/modal"
+import { UserAvatar } from "@/components/common"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { TextareaWithLabel } from "@/components/common/TextareaWithLabel"
@@ -142,9 +143,10 @@ const ContactInquiryModal = ({
         {/* Sender Info Bar */}
         <div className="p-3 sm:p-4 rounded-xl border border-border bg-muted/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-start sm:items-center gap-3 min-w-0 w-full">
-            <div className="size-9 sm:size-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold text-xs sm:text-sm shrink-0">
-              {inquiry.name.charAt(0).toUpperCase()}
-            </div>
+            <UserAvatar
+              name={inquiry.name}
+              className="size-9 sm:size-10 text-xs sm:text-sm"
+            />
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span className="text-xs sm:text-sm font-bold text-foreground truncate">

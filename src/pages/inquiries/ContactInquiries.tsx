@@ -4,9 +4,9 @@ import {
   mockContactInquiries,
   type ContactInquiryItem,
 } from "@/data/dummyData"
-import ContactInquiryStats from "@/components/features/inquiries/ContactInquiryStats"
-import ContactInquiriesTable from "@/components/features/inquiries/ContactInquiriesTable"
-import ContactInquiryModal from "@/components/features/inquiries/ContactInquiryModal"
+import ContactInquiryStats from "@/components/features/contact-inquiries/ContactInquiryStats"
+import ContactInquiriesTable from "@/components/features/contact-inquiries/ContactInquiriesTable"
+import ContactInquiryModal from "@/components/features/contact-inquiries/ContactInquiryModal"
 
 const ContactInquiries = () => {
   const [inquiries, setInquiries] = useState<ContactInquiryItem[]>(mockContactInquiries)
@@ -25,11 +25,11 @@ const ContactInquiries = () => {
       prev.map((item) =>
         item.id === inquiryId
           ? {
-              ...item,
-              status: "Replied",
-              replyText,
-              repliedAt: "Just now",
-            }
+            ...item,
+            status: "Replied",
+            replyText,
+            repliedAt: "Just now",
+          }
           : item
       )
     )
@@ -37,11 +37,11 @@ const ContactInquiries = () => {
       setSelectedInquiry((prev) =>
         prev
           ? {
-              ...prev,
-              status: "Replied",
-              replyText,
-              repliedAt: "Just now",
-            }
+            ...prev,
+            status: "Replied",
+            replyText,
+            repliedAt: "Just now",
+          }
           : null
       )
     }

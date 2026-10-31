@@ -77,6 +77,7 @@ export interface UserItem {
   name: string
   email: string
   phone: string
+  image?: string
   status: "Active" | "Inactive"
   city: string
   createdAt: string
@@ -965,6 +966,97 @@ export const mockSubscriptionPlans: SubscriptionPlanItem[] = [
     ],
     status: "Active",
     createdAt: "Oct 01, 2026",
+  },
+]
+
+// ----------------------------------------------------
+// Banner Ads Inquiries Data
+// ----------------------------------------------------
+export interface BannerAdInquiryItem {
+  id: string
+  name: string
+  email: string
+  mobile: string
+  bannerType: "Header Banner" | "Footer Banner" | "Side Banner" | "Blog Page Banner" | "All in One"
+  width: string
+  height: string
+  notes?: string
+  status: "New" | "Confirmed" | "Rejected"
+  createdAt: string
+}
+
+export const mockBannerAdInquiries: BannerAdInquiryItem[] = [
+  {
+    id: "INQ-BA-101",
+    name: "Vikram Malhotra",
+    email: "vikram.m@zenithdigital.in",
+    mobile: "+91 98201 44321",
+    bannerType: "Header Banner",
+    width: "728px",
+    height: "90px",
+    notes: "We want to run a festive campaign on the homepage header for 30 days starting next week.",
+    status: "New",
+    createdAt: "Oct 30, 2026",
+  },
+  {
+    id: "INQ-BA-102",
+    name: "Sneha Patel",
+    email: "sneha.p@apexhealthcare.org",
+    mobile: "+91 94260 78190",
+    bannerType: "Side Banner",
+    width: "300px",
+    height: "250px",
+    notes: "Targeting healthcare & medical category in Ahmedabad. Interested in a 3-month contract.",
+    status: "Confirmed",
+    createdAt: "Oct 29, 2026",
+  },
+  {
+    id: "INQ-BA-103",
+    name: "Rajesh Kulkarni",
+    email: "rajesh@kulkarniauto.com",
+    mobile: "+91 98902 33441",
+    bannerType: "All in One",
+    width: "Responsive",
+    height: "Multi-size",
+    notes: "Need full-site brand coverage across Pune listings. Please share discounted pricing package.",
+    status: "New",
+    createdAt: "Oct 28, 2026",
+  },
+  {
+    id: "INQ-BA-104",
+    name: "Ananya Deshmukh",
+    email: "ananya.d@urbanstyles.co",
+    mobile: "+91 97654 11223",
+    bannerType: "Blog Page Banner",
+    width: "728px",
+    height: "300px",
+    notes: "In-content banner for shopping and fashion guides. Creative graphic is already ready.",
+    status: "Confirmed",
+    createdAt: "Oct 27, 2026",
+  },
+  {
+    id: "INQ-BA-105",
+    name: "Harish Iyer",
+    email: "harish@speedycourier.in",
+    mobile: "+91 98450 99887",
+    bannerType: "Footer Banner",
+    width: "728px",
+    height: "90px",
+    notes: "Budget is only ₹500 for 1 month, looking for cheap placement.",
+    status: "Rejected",
+    createdAt: "Oct 25, 2026",
+  },
+  {
+    id: "INQ-BA-106",
+    name: "Pooja Singhania",
+    email: "pooja@royalgems.in",
+    mobile: "+91 98112 66778",
+    bannerType: "Header Banner",
+    width: "970px",
+    height: "250px",
+    notes: "Billboard header banner for premium jewelry launch in Delhi NCR.",
+    status: "New",
+    createdAt: "Oct 24, 2026",
   },
 ]
 

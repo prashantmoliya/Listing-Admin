@@ -11,7 +11,7 @@ const Users = () => {
       />
       <UserStats />
       <UsersTable />
-    </div>
+    </div>    
   )
 }
 

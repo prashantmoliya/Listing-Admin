@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import AlertModal from "@/components/common/AlertModal"
+import { UserAvatar } from "@/components/common"
 import { cn } from "@/lib/utils"
 
 const statusFilters = ["All", "Active", "Inactive"]
@@ -58,18 +59,10 @@ const UsersTable = () => {
         header: "User",
         cell: ({ row }) => {
           const user = row.original
-          const initials = user.name
-            .split(" ")
-            .map((n) => n[0])
-            .slice(0, 2)
-            .join("")
-            .toUpperCase()
 
           return (
             <div className="flex items-center gap-3">
-              <div className="size-9 rounded-full bg-muted flex items-center justify-center font-semibold text-xs text-muted-foreground border border-border shrink-0">
-                {initials}
-              </div>
+              <UserAvatar name={user.name} />
               <span className="font-semibold text-foreground text-sm truncate">
                 {user.name}
               </span>
