@@ -1060,6 +1060,158 @@ export const mockBannerAdInquiries: BannerAdInquiryItem[] = [
   },
 ]
 
+// ----------------------------------------------------
+// Services & Products Inquiries Data
+// (Customer leads sent from listing pages on website)
+// ----------------------------------------------------
+export interface ServiceProductInquiryItem {
+  id: string
+  fullName: string
+  email: string
+  phone: string
+  service: string
+  listingId: string
+  listingName: string
+  businessOwnerName: string
+  businessOwnerEmail?: string
+  businessOwnerPhone?: string
+  category: string
+  city: string
+  preferredContact: "WhatsApp" | "Phone"
+  message: string
+  status: "Pending" | "Resolved" | "Rejected"
+  createdAt: string
+}
+
+export const mockServiceProductInquiries: ServiceProductInquiryItem[] = [
+  {
+    id: "INQ-SP-501",
+    fullName: "Rohan Varma",
+    email: "rohan.varma@gmail.com",
+    phone: "+91 98201 55678",
+    service: "Deluxe Sea-Facing Suite (2 Nights)",
+    listingId: "LST-1082",
+    listingName: "Taj Mahal Palace Suites",
+    businessOwnerName: "Rajesh Kothari",
+    businessOwnerEmail: "rajesh.k@gmail.com",
+    businessOwnerPhone: "+91 98251 44320",
+    category: "Hotels & Stays",
+    city: "Mumbai, MH",
+    preferredContact: "WhatsApp",
+    message: "Hi, I am looking to book a sea-facing deluxe suite for my parents' anniversary on the upcoming weekend (Nov 7-9). Need confirmation on early check-in and complimentary breakfast package.",
+    status: "Pending",
+    createdAt: "Today, 11:20 AM",
+  },
+  {
+    id: "INQ-SP-502",
+    fullName: "Meera Krishnan",
+    email: "meera.krishnan@techwave.io",
+    phone: "+91 94481 23091",
+    service: "Full Body Executive Health Checkup",
+    listingId: "LST-1081",
+    listingName: "Apex Healthcare & Diagnostics",
+    businessOwnerName: "Amitabh Sen",
+    businessOwnerEmail: "amitabh@biznest.in",
+    businessOwnerPhone: "+91 98980 12345",
+    category: "Health & Medical",
+    city: "Bengaluru, KA",
+    preferredContact: "Phone",
+    message: "Need to book senior citizen comprehensive health screening for two persons with home blood sample collection. Please share schedule availability for this Saturday morning.",
+    status: "Resolved",
+    createdAt: "Yesterday, 04:15 PM",
+  },
+  {
+    id: "INQ-SP-503",
+    fullName: "Kabir Nambiar",
+    email: "kabir.nambiar@creatives.co",
+    phone: "+91 99102 88410",
+    service: "Limited Edition Sneaker Customization",
+    listingId: "LST-1080",
+    listingName: "Urban Kicks & Streetwear",
+    businessOwnerName: "Sameer Malhotra",
+    businessOwnerEmail: "sameer.m@urbankicks.in",
+    businessOwnerPhone: "+91 99100 55412",
+    category: "Shopping & Retail",
+    city: "Delhi, NCR",
+    preferredContact: "WhatsApp",
+    message: "Want custom hand-painted anime artwork on Nike Dunk Lows. Please share quotation and turnaround timeline. My shoe size is UK 9.",
+    status: "Pending",
+    createdAt: "Oct 29, 2026",
+  },
+  {
+    id: "INQ-SP-504",
+    fullName: "Sunita Agarwal",
+    email: "sunita.agarwal@hotmail.com",
+    phone: "+91 98795 66120",
+    service: "Rooftop Private Banquet Dining (35 Guests)",
+    listingId: "LST-1079",
+    listingName: "Royal Spice Fine Dining",
+    businessOwnerName: "Vikram Singhania",
+    businessOwnerEmail: "vikram@singhaniagroup.com",
+    businessOwnerPhone: "+91 98250 11990",
+    category: "Food & Restaurants",
+    city: "Ahmedabad, GJ",
+    preferredContact: "Phone",
+    message: "Inquiry for private family dinner party on Nov 15th evening. Require customized Jain and North Indian buffet menu. Please contact to discuss decor and advance booking.",
+    status: "Resolved",
+    createdAt: "Oct 28, 2026",
+  },
+  {
+    id: "INQ-SP-505",
+    fullName: "Devendra Patil",
+    email: "devendra@patilfoundry.com",
+    phone: "+91 98220 77114",
+    service: "Custom SaaS MVP & Cloud Migration",
+    listingId: "LST-1078",
+    listingName: "Zenith Digital Solutions",
+    businessOwnerName: "Amitabh Sen",
+    businessOwnerEmail: "amitabh@biznest.in",
+    businessOwnerPhone: "+91 98980 12345",
+    category: "IT & Software",
+    city: "Pune, MH",
+    preferredContact: "Phone",
+    message: "We are building an ERP workflow for manufacturing units and require backend architecture design with React frontend. Please share your portfolio and consultation availability.",
+    status: "Rejected",
+    createdAt: "Oct 27, 2026",
+  },
+  {
+    id: "INQ-SP-506",
+    fullName: "Ayesha Khan",
+    email: "ayesha.khan92@gmail.com",
+    phone: "+91 97240 33819",
+    service: "Bridal Moroccan Hair Spa & Makeover",
+    listingId: "LST-1088",
+    listingName: "Aura Unisex Salon & Spa",
+    businessOwnerName: "Kavita Rao",
+    businessOwnerEmail: "kavita.rao@yahoo.com",
+    businessOwnerPhone: "+91 94260 77651",
+    category: "Beauty & Spa",
+    city: "Ahmedabad, GJ",
+    preferredContact: "WhatsApp",
+    message: "Looking for bridal pre-wedding package for bride plus 3 bridesmaids. Can you share the service checklist and date booking availability for December 1st week?",
+    status: "Pending",
+    createdAt: "Oct 26, 2026",
+  },
+  {
+    id: "INQ-SP-507",
+    fullName: "Arun Joshi",
+    email: "arun.joshi@novasoft.com",
+    phone: "+91 98450 11200",
+    service: "Organic Farm-to-Table Corporate Catering",
+    listingId: "LST-1085",
+    listingName: "Greenleaf Organic Bistro",
+    businessOwnerName: "Pooja Varma",
+    businessOwnerEmail: "pooja.v@outlook.com",
+    businessOwnerPhone: "+91 97234 88129",
+    category: "Food & Restaurants",
+    city: "Bengaluru, KA",
+    preferredContact: "WhatsApp",
+    message: "Interested in weekly organic meal boxes for our 40-member design team in Indiranagar. Please send corporate pricing options.",
+    status: "Resolved",
+    createdAt: "Oct 24, 2026",
+  },
+]
+
 
 
 
