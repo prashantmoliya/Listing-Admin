@@ -45,10 +45,10 @@ interface NavItem {
 const mainNavItems: NavItem[] = [
   { label: "Dashboard", href: "/", icon: LayoutDashboard },
   { label: "Categories", href: "/categories", icon: FolderTree },
+  { label: "States & City", href: "/states-city", icon: MapPin },
   { label: "Users", href: "/users", icon: Users },
   { label: "Listings", href: "/listings", icon: Building2 },
   { label: "Services & Products", href: "/services-products", icon: ShoppingBag },
-  { label: "States & City", href: "/states-city", icon: MapPin },
   { 
     label: "Inquiries", 
     icon: MessageSquare,

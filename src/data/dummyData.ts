@@ -1212,6 +1212,142 @@ export const mockServiceProductInquiries: ServiceProductInquiryItem[] = [
   },
 ]
 
+// ----------------------------------------------------
+// Services & Products Catalog Data
+// (Offerings added by owners of approved listings)
+// ----------------------------------------------------
+export interface ServiceProductItem {
+  id: string
+  name: string
+  category: string
+  description: string
+  price: number
+  popular: boolean
+  status: "Active" | "Inactive"
+  image: string
+  listingId: string
+  listingName: string
+  listingCategory: string 
+  businessOwnerName: string
+  city: string
+  createdAt: string
+}
+
+export const mockServicesProducts: ServiceProductItem[] = [
+  {
+    id: "SP-101",
+    name: "Royal Heritage Courtyard Suite",
+    category: "Suites & Rooms",
+    description: "Opulent royal suite overlooking the central palace courtyard with private 24/7 butler service and jacuzzi.",
+    price: 25000,
+    popular: true,
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1082",
+    listingName: "Taj Mahal Palace Suites",
+    listingCategory: "Hotels & Stays",
+    businessOwnerName: "Rajesh Kothari",
+    city: "Mumbai, MH",
+    createdAt: "Oct 12, 2026",
+  },
+  {
+    id: "SP-102",
+    name: "Executive Full Body Screening Package",
+    category: "Health & Diagnostics",
+    description: "Comprehensive 85-parameter biochemical blood screening, ECG, digital chest X-ray, and senior physician consultation.",
+    price: 4999,
+    popular: true,
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1081",
+    listingName: "Apex Healthcare & Diagnostics",
+    listingCategory: "Health & Medical",
+    businessOwnerName: "Amitabh Sen",
+    city: "Bengaluru, KA",
+    createdAt: "Oct 14, 2026",
+  },
+  {
+    id: "SP-103",
+    name: "Air Jordan Hand-Painted Custom Artwork",
+    category: "Custom Footwear",
+    description: "Custom anime, graffiti, or minimalist hand-painted leather artwork sealed with scratch-resistant waterproof acrylic finisher.",
+    price: 12500,
+    popular: true,
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1080",
+    listingName: "Urban Kicks & Streetwear",
+    listingCategory: "Shopping & Retail",
+    businessOwnerName: "Sameer Malhotra",
+    city: "Delhi, NCR",
+    createdAt: "Oct 16, 2026",
+  },
+  {
+    id: "SP-104",
+    name: "Royal Mughlai Grand Thali Experience",
+    category: "Specialty Dining",
+    description: "Grand 12-course slow-cooked Awadhi and Mughlai culinary degustation served in traditional copper silverware.",
+    price: 1850,
+    popular: false,
+    status: "Inactive",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1079",
+    listingName: "Royal Spice Fine Dining",
+    listingCategory: "Food & Restaurants",
+    businessOwnerName: "Vikram Singhania",
+    city: "Ahmedabad, GJ",
+    createdAt: "Oct 18, 2026",
+  },
+  {
+    id: "SP-105",
+    name: "Full-Stack SaaS MVP Architecture Sprint",
+    category: "IT & Software",
+    description: "2-week rapid development sprint delivering production-ready multi-tenant SaaS MVP with React, Node, and PostgreSQL.",
+    price: 85000,
+    popular: false,
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1078",
+    listingName: "Zenith Digital Solutions",
+    listingCategory: "IT & Software",
+    businessOwnerName: "Amitabh Sen",
+    city: "Pune, MH",
+    createdAt: "Oct 20, 2026",
+  },
+  {
+    id: "SP-106",
+    name: "Bridal Moroccan Argan Oil Hair Spa",
+    category: "Hair & Beauty",
+    description: "Deep conditioning steam treatment with pure cold-pressed Moroccan argan oil, scalp massage, and ozone therapy.",
+    price: 3200,
+    popular: true,
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1088",
+    listingName: "Aura Unisex Salon & Spa",
+    listingCategory: "Beauty & Spa",
+    businessOwnerName: "Kavita Rao",
+    city: "Ahmedabad, GJ",
+    createdAt: "Oct 22, 2026",
+  },
+  {
+    id: "SP-107",
+    name: "Weekly Farm-Fresh Organic Salad Bowl Plan",
+    category: "Organic Food",
+    description: "Subscription package of 5 nutrient-dense organic hydroponic microgreen bowls with cold-pressed dressings.",
+    price: 2100,
+    popular: false,
+    status: "Inactive",
+    image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&auto=format&fit=crop&q=60",
+    listingId: "LST-1085",
+    listingName: "Greenleaf Organic Bistro",
+    listingCategory: "Food & Restaurants",
+    businessOwnerName: "Pooja Varma",
+    city: "Bengaluru, KA",
+    createdAt: "Oct 25, 2026",
+  },
+]
+
 
 
 

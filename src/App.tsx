@@ -22,7 +22,7 @@ import Advertisements from "@/pages/advertisements/Advertisements"
 import Blog from "@/pages/blog/Blog"
 import BlogForm from "@/pages/blog/BlogForm"
 
-export default function App() {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -35,22 +35,22 @@ export default function App() {
           <Route path="/categories" element={<Category />} />
           <Route path="/categories/create" element={<CategoryForm />} />
           <Route path="/categories/:id/edit" element={<CategoryForm />} />
-          <Route path="/listings" element={<Listings />} />
+          <Route path="/states-city" element={<StatesCity />} />
           <Route path="/users" element={<Users />} />
           <Route path="/users/:id" element={<UserDetails />} />
+          <Route path="/listings" element={<Listings />} />
+          <Route path="/services-products" element={<ServicesProducts />} />
           <Route path="/inquiries" element={<Navigate to="/inquiries/contact" replace />} />
           <Route path="/inquiries/contact" element={<ContactInquiries />} />
           <Route path="/inquiries/banner-ads" element={<BannerAdsInquiries />} />
           <Route path="/inquiries/services-products" element={<ServicesProductsInquiries />} />
-          <Route path="/services-products" element={<ServicesProducts />} />
-          <Route path="/states-city" element={<StatesCity />} />
           <Route path="/advertisements" element={<Advertisements />} />
           <Route path="/subscriptions" element={<Subscriptions />} />
           <Route path="/payments" element={<Payments />} />
-          <Route path="/notifications" element={<Notifications />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/create" element={<BlogForm />} />
           <Route path="/blog/:id/edit" element={<BlogForm />} />
+          <Route path="/notifications" element={<Notifications />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="*" element={<NotFound />} />
         </Route>
@@ -58,3 +58,5 @@ export default function App() {
     </BrowserRouter>
   )
 }
+
+export default App;
