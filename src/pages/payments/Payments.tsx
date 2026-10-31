@@ -1,4 +1,5 @@
 import { PageHeader } from "@/components/common/PageHeader"
+import { ComingSoon } from "@/components/common"
 
 const Payments = () => {
   return (
@@ -7,6 +8,8 @@ const Payments = () => {
         title="Payments"
         description="Monitor invoice history, revenue transactions, and payment gateway logs."
       />
+
+      <ComingSoon />
     </div>
   )
 }

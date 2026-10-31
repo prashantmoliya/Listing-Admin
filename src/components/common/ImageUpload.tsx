@@ -151,7 +151,7 @@ export function ImageUpload({
           <div className="relative size-24 sm:size-28 rounded-xl overflow-hidden border border-border bg-muted/40 shrink-0 shadow-2xs group flex items-center justify-center">
             <img
               src={value}
-              alt="Category Preview"
+              alt={label ? `${label} Preview` : "Uploaded Image Preview"}
               className="size-full object-cover transition-transform group-hover:scale-105 duration-300"
               onError={(e) => {
                 e.currentTarget.style.display = "none"
@@ -165,7 +165,9 @@ export function ImageUpload({
                 <ImageIcon className="size-3.5 text-primary" /> Image Uploaded
               </p>
               <p className="text-[11px] text-muted-foreground mt-0.5">
-                Preview of the category badge and header thumbnail.
+                {label
+                  ? `Preview of the uploaded ${label.toLowerCase()}.`
+                  : "Preview of the uploaded image."}
               </p>
             </div>
 

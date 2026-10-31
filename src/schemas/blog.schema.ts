@@ -46,6 +46,9 @@ export const blogSchema = z.object({
     .trim()
     .min(1, "Author role is required")
     .max(80, "Author role must be under 80 characters"),
+  authorAvatar: z
+    .string()
+    .min(1, "Please upload an author photo"),
   authorInstagram: z.string().trim().optional(),
   authorFacebook: z.string().trim().optional(),
   authorTwitter: z.string().trim().optional(),

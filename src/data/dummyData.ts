@@ -759,6 +759,7 @@ export const mockBlogs: BlogItem[] = [
     category: "Business Tips",
     author: "Raj Sharma",
     authorRole: "Senior Business Strategist",
+    authorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
     authorSocialLinks: {
       linkedin: "https://linkedin.com/in/rajsharma",
       twitter: "https://twitter.com/rajsharma",
@@ -781,6 +782,7 @@ export const mockBlogs: BlogItem[] = [
     category: "Platform News",
     author: "Editorial Team",
     authorRole: "Listing Operations",
+    authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
     authorSocialLinks: {
       linkedin: "https://linkedin.com/company/indianlistingbucket",
       twitter: "https://twitter.com/indianlisting",
@@ -801,6 +803,7 @@ export const mockBlogs: BlogItem[] = [
     category: "Local Guides",
     author: "Priya Varma",
     authorRole: "Food & Lifestyle Curator",
+    authorAvatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
     authorSocialLinks: {
       instagram: "https://instagram.com/priyavarma",
     },
@@ -820,6 +823,7 @@ export const mockBlogs: BlogItem[] = [
     category: "Marketing & SEO",
     author: "Raj Sharma",
     authorRole: "Senior Business Strategist",
+    authorAvatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
     tags: ["festive-ads", "roi", "marketing-branding", "banners"],
     image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80",
     excerpt: "Learn how targeted homepage banners and featured category spots boost brand awareness during Diwali and festive peaks.",
@@ -836,6 +840,7 @@ export const mockBlogs: BlogItem[] = [
     category: "Business Tips",
     author: "Editorial Team",
     authorRole: "Customer Success Lead",
+    authorAvatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
     tags: ["reviews", "customer-retention", "reputation", "tips"],
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
     excerpt: "Turn unhappy customers into loyal brand ambassadors through prompt, empathetic, and professional public responses.",
@@ -852,6 +857,7 @@ export const mockBlogs: BlogItem[] = [
     category: "Market Trends",
     author: "Aakash Mehta",
     authorRole: "Social Media Strategist",
+    authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
     tags: ["influencers", "hyperlocal", "retail", "branding"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     excerpt: "Why hyper-local micro-influencers with 5k-20k followers drive higher conversions than celebrity sponsorships.",

@@ -16,6 +16,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
 import { Switch } from "@/components/ui/switch"
 import AlertModal from "@/components/common/AlertModal"
+import { UserAvatar } from "@/components/common/UserAvatar"
 import { type BlogItem } from "@/data/dummyData"
 import { cn } from "@/lib/utils"
 
@@ -165,11 +166,20 @@ const BlogTable = ({
       {
         id: "author",
         header: "Author",
-        cell: ({ row }) => (
-          <span className="text-xs font-semibold text-foreground whitespace-nowrap">
-            {row.original.author}
-          </span>
-        ),
+        cell: ({ row }) => {
+          const blog = row.original
+          return (
+            <div className="flex items-center gap-2.5 min-w-[130px]">
+              <UserAvatar
+                name={blog.author}
+                src={blog.authorAvatar}
+              />
+              <span className="text-xs font-semibold text-foreground truncate">
+                {blog.author}
+              </span>
+            </div>
+          )
+        },
       },
       {
         id: "views",

@@ -208,7 +208,7 @@ const ServicesProductsTable = ({ items }: ServicesProductsTableProps) => {
             <div className="flex items-center justify-end">
               <Button
                 type="button"
-                variant="ghost"
+                variant="outline"
                 size="icon"
                 onClick={() => setSelectedItem(item)}
                 className="size-8 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 cursor-pointer transition-colors"

@@ -61,6 +61,7 @@ const BlogForm = () => {
       category: "",
       author: "",
       authorRole: "",
+      authorAvatar: "",
       authorInstagram: "",
       authorFacebook: "",
       authorTwitter: "",
@@ -84,6 +85,7 @@ const BlogForm = () => {
         category: existingBlog.category,
         author: existingBlog.author,
         authorRole: existingBlog.authorRole,
+        authorAvatar: existingBlog.authorAvatar,
         authorInstagram: existingBlog.authorSocialLinks?.instagram || "",
         authorFacebook: existingBlog.authorSocialLinks?.facebook || "",
         authorTwitter: existingBlog.authorSocialLinks?.twitter || "",
@@ -125,6 +127,7 @@ const BlogForm = () => {
           category: data.category,
           author: data.author.trim(),
           authorRole: data.authorRole.trim(),
+          authorAvatar: data.authorAvatar?.trim(),
           authorSocialLinks,
           tags: parsedTags,
           image: data.image.trim(),
@@ -147,6 +150,7 @@ const BlogForm = () => {
         category: data.category,
         author: data.author.trim(),
         authorRole: data.authorRole.trim(),
+        authorAvatar: data.authorAvatar?.trim(),
         authorSocialLinks,
         tags: parsedTags,
         image: data.image.trim(),
@@ -455,6 +459,24 @@ const BlogForm = () => {
               <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground block border-b border-border pb-3">
                 Author Profile
               </span>
+
+              {/* Author Photo */}
+              <Controller
+                name="authorAvatar"
+                control={control}
+                render={({ field }) => (
+                  <ImageUpload
+                    id="authorAvatar"
+                    label="Author Photo"
+                    value={field.value}
+                    onChange={field.onChange}
+                    error={errors.authorAvatar?.message}
+                    disabled={isSubmitting}
+                    description="Upload author profile picture (max. 5MB)"
+                    className="[&>div.flex]:flex-col! [&>div.flex]:items-center! [&>div.flex]:text-center [&>div.flex>div:first-child]:size-20! [&>div.flex>div:first-child]:rounded-full! [&>div.flex>div:last-child]:w-full [&>div.flex>div:last-child]:text-center [&>div.flex>div:last-child>div:first-child>p]:justify-center [&>div.flex>div:last-child>div:last-child]:justify-center [&>div.flex>div:last-child>div:last-child]:flex-wrap"
+                  />
+                )}
+              />
 
               {/* Author Name */}
               <Controller
